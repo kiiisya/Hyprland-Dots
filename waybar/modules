@@ -1,0 +1,246 @@
+{
+	"temperature": {
+		"interval": 10,
+		"tooltip": true,
+		"hwmon-path": [
+			"/sys/class/hwmon/hwmon1/temp1_input",
+			"/sys/class/thermal/thermal_zone0/temp"
+		],
+		//"thermal-zone": 0,
+		"critical-threshold": 82,
+		"format": "{icon} {temperatureC}°C",
+		"format-icons": [
+			""
+		],
+	},
+
+	"cpu": {
+			"format-alt": "󰍛 {usage}%",
+			"interval": 1,
+			"min-length": 5,
+			"format-alt-click": "click",
+			"format": "{icon0}{icon1}{icon2}{icon3} 󰍛 {usage:>2}%",
+			"format-icons": [
+				"▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"
+			],
+			"on-click-right": "gnome-system-monitor",
+		},
+
+	"memory": {
+		"interval": 10,
+		"format": "󰾆 {used:0.1f} Gib",
+		"format-alt": "󰾆 {percentage}%",
+		"format-alt-click": "click",
+		"tooltip": true,
+		"tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
+		"on-click-right": "kitty --title btop sh -c 'btop'"
+	},
+
+	"network#speed": {
+		"interval": 1,
+		"format": "{ifname}",
+		"format-wifi": "{icon}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+		"format-ethernet": "󰌘  {bandwidthUpBytes}  {bandwidthDownBytes}",
+		"format-disconnected": "󰌙",
+		"tooltip-format": "{ipaddr}",
+		"format-linked": "󰈁 {ifname} (No IP)",
+		"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+		"tooltip-format-ethernet": "{ifname} 󰌘",
+		"tooltip-format-disconnected": "󰌙 Disconnected",
+		"min-length": 24,
+		"max-length": 24,
+		"format-icons": [
+			"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+		]
+	},
+	
+	"battery": {
+		"align": 0,
+		"rotate": 0,
+		"full-at": 100,
+		"design-capacity": false,
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": "󱘖 {capacity}%",
+		"format-alt-click": "click",
+		"format-alt": "{icon} {time}",
+		"format-icons": [
+			"󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+		],
+		"format-time": "{H}h {M}min",
+		"tooltip": true,
+		"tooltip-format": "{timeTo} {power}w",
+		"on-click-middle": "$HOME/.config/hypr/scripts/ChangeBlur.sh",
+		"on-click-right": "$HOME/.config/hypr/scripts/Wlogout.sh",
+	},
+		
+	"clock": {
+		"interval": 1,
+	    //"format": " {:%I:%M %p}", // AM PM format
+	    "format": " {:%H:%M:%S}", // 24H
+		"format-alt": " {:%H:%M   %Y, %d %B, %A}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode": "year",
+			"mode-mon-col": 3,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"format": {
+				"months": "<span color='#ffead3'><b>{}</b></span>",
+				"days": "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+				"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+			}
+		}
+	},
+	
+	"hyprland/language": {
+		"format": "{}",
+		"format-en": "en",
+		"format-ru": "ru",
+		"keyboard-name": "video-bus",
+		"on-click": "hyprctl switchxkblayout video-bus prev"
+	},
+	
+	"keyboard-state": {
+		"capslock": true,
+		"format": {
+			"numlock": "N {icon}",
+			"capslock": "󰪛 {icon}",
+		},
+		"format-icons": {
+			"locked": "",
+			"unlocked": ""
+		},
+	},
+	
+	"network": {
+		"format": "{ifname}",
+		"format-wifi": "{icon}",
+		"format-ethernet": "󰌘",
+		"format-disconnected": "󰌙",
+		"tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
+		"format-linked": "󰈁 {ifname} (No IP)",
+		"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+		"tooltip-format-ethernet": "{ifname} 󰌘",
+		"tooltip-format-disconnected": "󰌙 Disconnected",
+		"max-length": 30,
+		"format-icons": [
+			"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+		],
+	},
+	
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} 󰂰 {volume}%",
+		"format-muted": "󰖁 {volume}%",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"", "", "󰕾",  ""
+			],
+			"ignored-sinks": [
+				"Easy Effects Sink"
+			],
+		},
+		"scroll-step": 5.0,
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		"on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
+		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+		"tooltip-format": "{icon} {desc} | {volume}%",
+		"smooth-scrolling-threshold": 1,
+	},
+
+	"pulseaudio#microphone": {
+		"format": "{format_source}",
+		"format-source": " {volume}%",
+		"format-source-muted": " {volume}%",
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+		"on-click-right": "pavucontrol -t 4",
+		"on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+",
+		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-",
+		"tooltip-format": "{source_desc} | {source_volume}%",
+		"scroll-step": 5,
+	},
+	
+	"tray": {
+		"icon-size": 20,
+		"spacing": 4,
+	},
+	
+	"custom/lock": {
+		"format": "󰌾",
+		"on-click": "swaylock",
+		"tooltip": true,
+		"tooltip-format": "󰷛 Screen Lock",
+	},
+	
+	"custom/menu": {
+		"format": " 󰣇",
+		"on-click": "./.config/rofi/scripts/launcher_t6",
+		"tooltip": true,
+		"tooltip-format": "",
+	},
+	
+	"custom/power": {
+		"format": "⏻ ",
+		"on-click": "./.config/rofi/scripts/powermenu_t4",
+		"tooltip": true,
+		"tooltip-format": "Power menu",
+	},
+
+	"custom/hint": {
+		"format": "󰺁",
+		"on-click": "swaync-client -t",
+		"tooltip": true,
+		"tooltip-format": "Notification",
+	},
+	
+	"custom/separator": {
+		"format": " ",
+		"interval": "once",
+		"tooltip": false
+	},
+
+	"hyprland/workspaces": {
+		"active-only": false,
+		"all-outputs": true,
+		"format": "{}",
+		"show-special": false,
+		"on-click": "activate",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+	    "persistent-workspaces": {
+	      "*": 7
+		},
+	},
+	"hyprland/workspaces#pacman": {
+		"active-only": false,
+		"all-outputs": true,
+		"format": "{icon}",
+		"on-click": "activate",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"show-special": false,
+	    "persistent-workspaces": {
+	      "*": 5
+		},
+		"format": "{icon}",
+		"format-icons": {
+	            "active": "<span font='12'>󰮯</span>",
+	            "empty": "<span font='8'></span>",
+	            "default": "󰊠",
+		},
+	},
+}
