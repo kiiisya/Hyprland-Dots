@@ -1,22 +1,21 @@
 #!/bin/bash
 
-su
-pacman -Syu -y
+sudo pacman -Syu
 
 git clone https://aur.archlinux.org/yay
 cd yay
 makepkg -si
 cd
-pacman -Syu
+sudo pacman -Syu
 
 clear
 
-pacman -S git hyprland hyprpicker waybar wlogout swayimg swaync swappy swaylock swww nemo fish micro vlc yad
-pacman -Rsn dolphin
+sudo pacman -S git hyprland hyprpicker waybar wlogout swayimg swaync swappy swaylock swww nemo fish micro vlc yad
+sudo pacman -Rsn dolphin
 clear
 
 # FONT
-pacman -S ttf-jetbrains-mono-nerd
+sudo pacman -S ttf-jetbrains-mono-nerd
 clear
 
 # GTK
@@ -28,12 +27,12 @@ gsettings set org.gnome.desktop.interface icon-theme "Dracula"
 gsettings set org.gnome.desktop.interface gtk-theme "Bibata-Modern-Ice"
 
 # UTILITIES
-pacman -S htop ranger mc sl glava dosfstools networkmanager neofetch fastfetch python python-pip lsd tmux bat
+sudo pacman -S htop ranger mc sl glava dosfstools networkmanager neofetch fastfetch python python-pip lsd tmux bat
 clear
-yay -S cava pipes.sh
+sudo yay -S cava pipes.sh
 clear
 # PROGRAMS
-pacman -S firefox obs-studio obsidian
+sudo pacman -S firefox obs-studio obsidian
 clear
 
 # SHELL
