@@ -11,7 +11,6 @@ sudo pacman -Syu
 clear
 
 sudo pacman -S git hyprland hyprpicker waybar swayimg swaync swappy swaylock swww nemo fish micro vlc yad
-sudo pacman -Rsn dolphin
 
 # FONT
 sudo pacman -S ttf-jetbrains-mono-nerd
