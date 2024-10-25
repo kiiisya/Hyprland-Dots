@@ -18,7 +18,8 @@ sudo pacman -S ttf-jetbrains-mono-nerd
 clear
 
 # GTK
-yay -S nwg-look dracula-gtk-theme dracula-icons-theme bibata-cursor-theme
+sudo pacman -S nwg-look
+yay -S dracula-gtk-theme dracula-icons-theme bibata-cursor-theme
 clear
 
 gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
