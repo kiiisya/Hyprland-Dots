@@ -10,7 +10,7 @@ sudo pacman -Syu
 
 clear
 
-sudo pacman -S git hyprland hyprpicker waybar wlogout swayimg swaync swappy swaylock swww nemo fish micro vlc yad
+sudo pacman -S git hyprland hyprpicker waybar swayimg swaync swappy swaylock swww nemo fish micro vlc yad
 sudo pacman -Rsn dolphin
 clear
 
@@ -34,11 +34,6 @@ clear
 # PROGRAMS
 sudo pacman -S firefox obs-studio obsidian
 clear
-
-# SHELL
-chsh -s $(which /bin/fish)
-exit
-chsh -s $(which /bin/fish)
 
 git clone https://github.com/kiskis1488/Hyprland-Dots.git
 cd Hyprland-Dots
