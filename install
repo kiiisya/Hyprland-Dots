@@ -7,6 +7,7 @@ sudo pacman -Syu
 sudo pacman -S hyprland hyprpicker waybar swayimg swaync swappy swaylock swww nemo fish yad rofi # WM
 sudo pacman -S htop btop ranger mc sl glava dosfstools networkmanager neofetch fastfetch python python-pip lsd tmux git bat micro nwg-look # UTILITES
 sudo pacman -S firefox obs-studio obsidian vlc # PROGRAMS
+sudo pacman -S ntfs-3g
 
 git clone https://aur.archlinux.org/yay & cd yay & makepkg -si & cd & sudo pacman -Syu
 yay -S cava pipes.sh dracula-gtk-theme dracula-icons-theme bibata-cursor-theme
