@@ -1,23 +1,37 @@
 #!/bin/bash
 
-# UPDATE
-sudo pacman -Syu
+sudo su
+cd $HOME
 
-# PACMAN
-sudo pacman -S hyprland hyprpicker waybar swayimg swaync swappy swaylock swww nemo fish yad rofi # WM
-sudo pacman -S htop btop ranger mc sl glava dosfstools networkmanager neofetch fastfetch python python-pip lsd tmux git bat micro nwg-look # UTILITES
-sudo pacman -S firefox obs-studio obsidian vlc # PROGRAMS
-sudo pacman -S ntfs-3g
+# UPDATES
+pacman -Syu
 
+# PACKAGES
+pacman -S hyprland hyprpicker waybar swayimg swaync swappy swaylock swww rofi alacritty
+pacman -S git htop btop ranger mc sl glava dosfstools neofetch fastfetch lsd tmux bat micro vim nano
+pacman -S firefox obs-studio obsidian vlc nwg-look networkmanager blueman
+pacman -S ntfs-3g python python-pip wl-cliphist wl-clip-persistf cliphist
+
+exit
+
+# AUR
 git clone https://aur.archlinux.org/yay & cd yay & makepkg -si & cd & sudo pacman -Syu
 yay -S cava pipes.sh dracula-gtk-theme dracula-icons-theme bibata-cursor-theme
-gsettings set org.gnome.desktop.interface icon-theme "Dracula" & gsettings set org.gnome.desktop.interface gtk-theme "Bibata-Modern-Ice"
 
-# DOTS
-git clone https://github.com/kiiisya/Hyprland-Dots.git & cd Hyprland-Dots
-mv -r {hypr,waybar,rofi,kitty,cava,fish,scripts, neofetch} ~/.config/
+#GTK
+gsettings set org.gnome.desktop.interface icon-theme "Dracula"
+gsettings set org.gnome.desktop.interface gtk-theme "Bibata-Modern-Ice"
+
+# DOTSFILES
+git clone https://github.com/kiiisya/Hyprland-Dots.git
+cd Hyprland-Dots
+mv -r {hypr,waybar,rofi,kitty,cava,fish,scripts,neofetch} ~/.config/
+
+# SHELL
+chsh -s /bin/fish
 
 # WALLPAPERS
-mkdir ~/.config/.wallpapers & mv -r ~/Hyprand-Dots/wallpapers/* ~/.config/.wallpapers 
+mkdir ~/.config/.wallpapers 
+mv -r ~/Hyprand-Dots/wallpapers/* ~/.config/.wallpapers 
 rm -rf Hyprland-Dots
 reboot
