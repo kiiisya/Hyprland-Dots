@@ -1,4 +1,4 @@
-[![Version.]()
+**VERSION: 1.1**
 
 > Arch -> Installation
 ```
